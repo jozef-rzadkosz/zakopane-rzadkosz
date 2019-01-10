@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/freestyle09/Zakopane-Rzadkosz.pl/issues"
   },
-  "homepage": "https://github.com/freestyle09/Zakopane-Rzadkosz.pl#readme"
+  "homepage": "https://github.com/freestyle09/Zakopane-Rzadkosz.pl#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
