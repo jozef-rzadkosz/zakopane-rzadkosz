@@ -1,0 +1,19 @@
+{
+  "name": "zakopane-rzadkosz.pl",
+  "version": "1.0.0",
+  "description": "Webpage of rzadkosz company for renting a room",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freestyle09/Zakopane-Rzadkosz.pl.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/freestyle09/Zakopane-Rzadkosz.pl/issues"
+  },
+  "homepage": "https://github.com/freestyle09/Zakopane-Rzadkosz.pl#readme"
+}
