@@ -4,7 +4,10 @@
   "description": "Webpage of rzadkosz company for renting a room",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "server": "nodemon app.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -17,6 +20,7 @@
   },
   "homepage": "https://github.com/freestyle09/Zakopane-Rzadkosz.pl#readme",
   "dependencies": {
+    "concurrently": "^4.1.0",
     "express": "^4.16.4"
   }
 }
