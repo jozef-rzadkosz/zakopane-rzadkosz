@@ -2,12 +2,18 @@
 
 header {
   height: 700px;
-  background-image: url('~/images/(9).jpg');
-  background-attachment: fixed;
+  background-image: url('~/images/(23).jpg');
+  background-position: center;
   background-size: cover;
   color: $color-white;
+  max-width: 2560px;
+  position: relative;
+  margin: 0 auto;
   .container {
+    height: 100%;
     .menu {
+      z-index: 1080;
+      position: relative;
       h1 {
         font: {
           family: $font-Meri;
@@ -25,7 +31,7 @@ header {
         justify-content: space-between;
         font: {
           family: $font-Mont;
-          size: 18px;
+          size: 16px;
           weight: 700;
         }
         text-transform: uppercase;
@@ -33,9 +39,64 @@ header {
           a {
             text-decoration: none;
             color: $color-white;
+            transition: 0.3s;
+            &:hover {
+              cursor: pointer;
+              color: $main-color;
+              transition: 0.3s;
+            }
           }
         }
       }
+    }
+    .offer {
+      z-index: 1020;
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      p {
+        font: {
+          size: 30px;
+          family: $font-Meri;
+          weight: bold;
+        }
+        text: {
+          transform: uppercase;
+        }
+      }
+      button {
+        background-color: transparent;
+        border: 3px solid $main-color;
+        margin-top: 20px;
+        padding: 10px 40px;
+        color: $main-color;
+        font: {
+          size: 12px;
+          family: $font-Mont;
+          weight: bold;
+        }
+        text-transform: uppercase;
+        outline: none;
+        transition: 0.3s;
+        &:hover {
+          background-color: $main-color;
+          color: $color-white;
+          cursor: pointer;
+          transition: 0.3s;
+        }
+      }
+    }
+    .qoute {
+      height: 100%;
+      position: absolute;
+      bottom: 0;
     }
   }
 }

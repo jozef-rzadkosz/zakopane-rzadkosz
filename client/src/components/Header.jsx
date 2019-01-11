@@ -23,6 +23,16 @@ class Header extends Component {
               </li>
             </ul>
           </div>
+
+          <div className='offer'>
+            <p>Szukasz dobrego miejsca na wypoczynek??</p>
+            <p>Sprawdź naszą ofertę!</p>
+            <button>Sprawdź</button>
+          </div>
+        </div>
+
+        <div className='qoute'>
+          <q>Siema</q>
         </div>
       </header>
     );
