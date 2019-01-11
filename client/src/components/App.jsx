@@ -10,6 +10,7 @@ import '../styles/style.scss';
 
 class App extends Component {
   state = {};
+
   render() {
     return (
       <div>

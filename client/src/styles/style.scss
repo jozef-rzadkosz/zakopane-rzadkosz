@@ -6,33 +6,4 @@ body {
   margin: 0;
 }
 
-header {
-  height: 400px;
-  background-image: url('~/images/(1).jpg');
-  background-attachment: fixed;
-  background-size: cover;
-  .container {
-    h1 {
-      font: {
-        family: $font-Meri;
-        size: 30px;
-        weight: bold;
-      }
-    }
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 30px;
-    ul.nav {
-      width: 45%;
-      display: flex;
-      justify-content: space-between;
-      font: {
-        family: $font-Mont;
-        size: 18px;
-        weight: 700;
-      }
-      text-transform: uppercase;
-    }
-  }
-}
+@import './header';
