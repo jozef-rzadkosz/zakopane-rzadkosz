@@ -7,6 +7,7 @@ import Header from './Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import '../styles/style.scss';
+import Home from './Home';
 
 class App extends Component {
   state = {};
@@ -15,6 +16,7 @@ class App extends Component {
     return (
       <div>
         <Header />
+        <Home />
       </div>
     );
   }
