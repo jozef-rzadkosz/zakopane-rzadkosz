@@ -5,6 +5,7 @@ class Header extends Component {
   render() {
     return (
       <header>
+        <div className='background-image' />
         <div className='container'>
           <div className='menu'>
             <h1>Zakopane-Rzadkosz.pl</h1>
@@ -29,10 +30,7 @@ class Header extends Component {
             <p>Sprawdź naszą ofertę!</p>
             <button>Sprawdź</button>
           </div>
-        </div>
-
-        <div className='qoute'>
-          <q>Siema</q>
+          <q className='qoute'>Dom nie jest tam gdzie mieszkamy, ale tam, gdzie kochamy i jesteśmy kochani.</q>
         </div>
       </header>
     );
