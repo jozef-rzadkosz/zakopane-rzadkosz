@@ -1,0 +1,31 @@
+@import './variables';
+
+#home {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h2 {
+      font: {
+        family: $font-Raleway;
+        weight: bold;
+        size: 30px;
+      }
+      text-transform: uppercase;
+      margin: 50px 0;
+    }
+    hr {
+      width: 80%;
+      border: 1px solid $main-color;
+      margin: 0 0 60px 0;
+    }
+    > div {
+      text-align: center;
+      padding: 10px 0;
+      font: {
+        family: $font-Meri;
+        size: 18px;
+      }
+    }
+  }
+}
