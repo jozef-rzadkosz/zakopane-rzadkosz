@@ -1,19 +1,13 @@
 @import './variables';
 
 #home {
-  padding-bottom: 50px;
+  padding: 50px 0;
   .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     h2 {
-      font: {
-        family: $font-Raleway;
-        weight: bold;
-        size: 30px;
-      }
-      text-transform: uppercase;
-      margin: 50px 0;
+      padding-bottom: 50px;
     }
     hr {
       width: 80%;

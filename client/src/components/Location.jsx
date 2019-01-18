@@ -8,6 +8,7 @@ class Location extends Component {
         <div className='container'>
           <div>
             <h2>Lokalizacja</h2>
+            <h3>Mapka i przydatne informacje</h3>
           </div>
           <div>2</div>
         </div>

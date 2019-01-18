@@ -9,3 +9,12 @@ body {
 @import './header';
 @import './home';
 @import './location';
+
+h2 {
+  font: {
+    family: $font-Raleway;
+    weight: bold;
+    size: 30px;
+  }
+  text-transform: uppercase;
+}
