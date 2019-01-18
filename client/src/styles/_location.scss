@@ -19,6 +19,29 @@
         }
         color: $main-color;
       }
+      .location-info {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding-top: 50px;
+        > div {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 50%;
+          > div {
+            text-align: center;
+            width: 100%;
+            border: 2px solid red;
+            .location-header {
+              font: {
+                size: 36px;
+              }
+              color: $main-color;
+            }
+          }
+        }
+      }
     }
   }
 }
