@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import '../styles/style.scss';
 import Home from './Home';
+import Location from './Location';
 
 class App extends Component {
   state = {};
@@ -17,6 +18,7 @@ class App extends Component {
       <div>
         <Header />
         <Home />
+        <Location />
       </div>
     );
   }

@@ -1,0 +1,12 @@
+@import './variables';
+
+#location {
+  height: 500px;
+  background-color: $bg-color;
+  .container {
+    display: flex;
+    > div {
+      width: 50%;
+    }
+  }
+}

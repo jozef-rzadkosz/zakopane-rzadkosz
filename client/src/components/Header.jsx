@@ -26,7 +26,7 @@ class Header extends Component {
           </div>
 
           <div className='offer'>
-            <p>Szukasz dobrego miejsca na wypoczynek??</p>
+            <p>Szukasz dobrego miejsca na wypoczynek?</p>
             <p>Sprawdź naszą ofertę!</p>
             <button>Sprawdź</button>
           </div>
