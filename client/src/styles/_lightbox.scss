@@ -58,9 +58,7 @@
       height: 100%;
       background-color: $main-color;
       opacity: 0.3;
-      transition: 0.5s;
-
-      z-index: 1090;
+      transition: 0.5s opacity;
     }
   }
 
