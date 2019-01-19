@@ -47,29 +47,33 @@
   height: 100%;
   width: 100%;
   position: relative;
-  &::after {
-    content: '>';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: $main-color;
-    opacity: 0;
-    transition: 0.5s opacity;
-    pointer-events: inherit;
-  }
-  &:hover::after {
-    opacity: 0.3;
-  }
 
   & a {
+    position: relative;
+    display: inline-block;
     height: 100%;
+    z-index: 1090;
+    &::after {
+      content: '>';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $main-color;
+      opacity: 0;
+      transition: 0.5s opacity;
+      cursor: pointer;
+    }
+    &:hover::after {
+      opacity: 0.3;
+    }
   }
   & img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    // z-index: 1090;
   }
 }
 
