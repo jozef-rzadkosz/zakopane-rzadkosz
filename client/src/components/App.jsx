@@ -9,6 +9,7 @@ import 'font-awesome/css/font-awesome.min.css';
 import '../styles/style.scss';
 import Home from './Home';
 import Location from './Location';
+import Gallery from './Gallery';
 
 class App extends Component {
   state = {};
@@ -19,6 +20,7 @@ class App extends Component {
         <Header />
         <Home />
         <Location />
+        <Gallery />
       </div>
     );
   }

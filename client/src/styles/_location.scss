@@ -1,13 +1,12 @@
 @import './variables';
 
 #location {
-  height: 500px;
   background-color: $bg-color;
   .container {
     display: flex;
     justify-content: space-between;
     > div {
-      width: 49%;
+      width: 48%;
       display: flex;
       flex-direction: column;
       align-items: center;
