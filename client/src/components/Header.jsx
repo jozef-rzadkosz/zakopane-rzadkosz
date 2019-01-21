@@ -1,7 +1,34 @@
 import React, { Component } from 'react';
 
 class Header extends Component {
-  state = {};
+  goto = selector => {
+    if (window.location.pathname !== '/') {
+      this.constructor.changeUrl();
+    }
+    let checkExist = setInterval(() => {
+      let element = document.getElementById(selector);
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+        clearInterval(checkExist);
+      }
+    }, 100);
+  };
+
+  goToAboutUs = () => {
+    this.goto('home');
+  };
+  goToLocation = () => {
+    this.goto('location');
+  };
+  goToGallery = () => {
+    this.goto('gallery');
+  };
+  goToContact = () => {
+    this.goto('contact');
+  };
   render() {
     return (
       <header>
@@ -11,16 +38,16 @@ class Header extends Component {
             <h1>Zakopane-Rzadkosz.pl</h1>
             <ul className='nav'>
               <li>
-                <a href='#'>O nas</a>
+                <a onClick={this.goToAboutUs}>O nas</a>
               </li>
               <li>
-                <a href='#'>Lokalizacja</a>
+                <a onClick={this.goToLocation}>Lokalizacja</a>
               </li>
               <li>
-                <a href='#'>Galeria</a>
+                <a onClick={this.goToGallery}>Galeria</a>
               </li>
               <li>
-                <a href='#'>Kontakt</a>
+                <a onClick={this.goToContact}>Kontakt</a>
               </li>
             </ul>
           </div>
@@ -28,7 +55,7 @@ class Header extends Component {
           <div className='offer'>
             <p>Szukasz dobrego miejsca na wypoczynek?</p>
             <p>Sprawdź naszą ofertę!</p>
-            <button>Sprawdź</button>
+            <button onClick={this.goToAboutUs}>Sprawdź</button>
           </div>
           <q className='qoute'>Dom nie jest tam gdzie mieszkamy, ale tam, gdzie kochamy i jesteśmy kochani.</q>
         </div>

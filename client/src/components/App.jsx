@@ -11,6 +11,7 @@ import Home from './Home';
 import Location from './Location';
 import Gallery from './Gallery';
 import Contact from './Contact';
+import GoToTop from './GoToTop';
 
 class App extends Component {
   state = {};
@@ -23,6 +24,7 @@ class App extends Component {
         <Location />
         <Gallery />
         <Contact />
+        <GoToTop />
       </div>
     );
   }

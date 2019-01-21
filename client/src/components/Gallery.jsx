@@ -36,9 +36,9 @@ class Gallery extends Component {
   ];
   render() {
     return (
-      <div>
+      <section id='gallery'>
         <Lightbox images={this.images} />
-      </div>
+      </section>
     );
   }
 }
