@@ -23,7 +23,7 @@ class Location extends Component {
             <h3>Mapka i przydatne informacje</h3>
             <div className='location-info'>
               <div>
-                <LocationInfo info='Centrum Zakopane' amount='5 km' />
+                <LocationInfo info='Centrum Zakopanego Krupówki' amount='5 km' />
                 <LocationInfo info='Trasa narciarska Nosal' amount='4 km' />
               </div>
               <div>
