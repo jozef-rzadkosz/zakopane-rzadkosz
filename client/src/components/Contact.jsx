@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ContactForm from './ContactForm';
 
 class Contact extends Component {
   state = {};
@@ -8,8 +9,8 @@ class Contact extends Component {
         <div className='background-image' />
         <div className='container'>
           <h2>Kontakt</h2>
-          <hr />
-          <div>Kontakt</div>
+          {/* <hr /> */}
+          <ContactForm />
         </div>
       </section>
     );
