@@ -1,0 +1,11 @@
+@import './variables';
+
+footer {
+  display: flex;
+  justify-content: center;
+  color: $color-white-rgba;
+  padding: 30px;
+  font: {
+    family: $font-Meri;
+  }
+}

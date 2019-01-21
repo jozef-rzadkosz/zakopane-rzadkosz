@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ContactForm from './ContactForm';
+import Footer from './Footer';
 
 class Contact extends Component {
   state = {};
@@ -9,8 +10,8 @@ class Contact extends Component {
         <div className='background-image' />
         <div className='container'>
           <h2>Kontakt</h2>
-          {/* <hr /> */}
           <ContactForm />
+          <Footer />
         </div>
       </section>
     );
