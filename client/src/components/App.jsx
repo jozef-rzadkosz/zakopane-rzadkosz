@@ -10,6 +10,7 @@ import '../styles/style.scss';
 import Home from './Home';
 import Location from './Location';
 import Gallery from './Gallery';
+import Contact from './Contact';
 
 class App extends Component {
   state = {};
@@ -21,6 +22,7 @@ class App extends Component {
         <Home />
         <Location />
         <Gallery />
+        <Contact />
       </div>
     );
   }
