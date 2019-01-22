@@ -223,7 +223,7 @@ export default class ContactForm extends React.Component {
         body: JSON.stringify(obj)
       })
         .then(resp => resp.json())
-        .then(data => {
+        .then(() => {
           // Alert after submiting the form
           Swal.fire({
             title: 'Sukces!',
@@ -232,7 +232,7 @@ export default class ContactForm extends React.Component {
             confirmButtonText: 'Zamknij'
           });
         })
-        .catch(err => {
+        .catch(() => {
           Swal.fire({
             title: 'Ups...',
             text: 'Wiadomość e-mail nie została wysłana prawidłowo',
