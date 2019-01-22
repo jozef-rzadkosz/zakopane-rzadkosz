@@ -13,7 +13,7 @@ export default class Lightbox extends React.Component {
 
   startLightbox = e => {
     e.preventDefault();
-    console.log(e.target);
+
     if (window.innerWidth > 768) {
       let index = e.target.dataset.image;
       this.setState({
