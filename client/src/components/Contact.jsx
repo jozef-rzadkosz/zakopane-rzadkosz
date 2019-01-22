@@ -10,7 +10,7 @@ class Contact extends Component {
         <div className='background-image' />
         <div className='container'>
           <h2>Kontakt</h2>
-          <ContactForm />
+          <ContactForm from='Zakopane-Rzadkosz.pl' />
           <Footer />
         </div>
       </section>

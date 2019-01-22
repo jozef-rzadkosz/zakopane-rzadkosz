@@ -205,8 +205,6 @@ export default class ContactForm extends React.Component {
       document.getElementById('message').classList.add('input-bottom-validate');
     } else if (this.state.errors.length > 0) {
     } else {
-      // Alert after submiting the form
-
       // Make an object and send it
       const obj = {
         from: this.state.from,
@@ -226,6 +224,7 @@ export default class ContactForm extends React.Component {
       })
         .then(resp => resp.json())
         .then(data => {
+          // Alert after submiting the form
           Swal.fire({
             title: 'Sukces!',
             text: 'Wiadomość e-mail została wysłana prawidłowo',

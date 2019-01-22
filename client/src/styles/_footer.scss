@@ -3,9 +3,17 @@
 footer {
   display: flex;
   justify-content: center;
-  color: $color-white-rgba;
+  color: $color-white;
   padding: 30px;
   font: {
     family: $font-Meri;
+  }
+  a {
+    color: $color-white;
+    transition: 0.3s;
+    &:hover {
+      color: $main-color;
+      text-decoration: none;
+    }
   }
 }
