@@ -35,14 +35,14 @@ router.post('/', (req, res) => {
     port: 465,
     secure: true,
     auth: {
-      user: keys.username,
-      pass: keys.password
+      user: prod.username,
+      pass: prod.password
     }
   });
 
   let mailOptions = {
     from: `${req.body.firstName} ${req.body.surname} <${req.body.email}>`,
-    cc: keys.username, // list of receivers
+    cc: prod.username, // list of receivers
     to: `${req.body.firstName} ${req.body.surname} <${req.body.email}>`,
     subject: `Wiadomość - ${req.body.from}`, // Subject line
     text: 'Hello world', // plain text body
