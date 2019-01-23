@@ -105,6 +105,10 @@
     position: relative;
     height: 100%;
     width: 100%;
+    .loading {
+      position: fixed;
+      z-index: 1090;
+    }
     .lg-arrows {
       position: absolute;
       top: 50%;
