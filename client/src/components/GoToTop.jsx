@@ -12,7 +12,7 @@ export default class GoToTop extends React.Component {
   };
   render() {
     return (
-      <div onClick={this.goToTop} className='no-display shadow go-to-top' id='goToTop'>
+      <div onClick={this.goToTop} className='no-display shadow' id='goToTop'>
         <i className='fa fa-arrow-circle-up' />
       </div>
     );

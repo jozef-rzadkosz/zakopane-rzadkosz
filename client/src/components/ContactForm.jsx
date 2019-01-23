@@ -229,9 +229,6 @@ export default class ContactForm extends React.Component {
         .then(resp => resp.json())
         .then(() => {
           // Alert after submiting the form
-          this.setState({
-            isLoading: false
-          });
           Swal.fire({
             title: 'Sukces!',
             text: 'Wiadomość e-mail została wysłana prawidłowo',
@@ -263,7 +260,8 @@ export default class ContactForm extends React.Component {
     }
 
     this.setState({
-      errors: this.errors
+      errors: this.errors,
+      isLoading: false
     });
   };
 
