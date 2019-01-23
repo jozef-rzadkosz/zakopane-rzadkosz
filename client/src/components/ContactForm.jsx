@@ -15,7 +15,8 @@ export default class ContactForm extends React.Component {
       message: '',
       from: '',
       errors: [],
-      show: false
+      show: false,
+      isLoading: false
     };
   }
 
@@ -205,6 +206,9 @@ export default class ContactForm extends React.Component {
       document.getElementById('message').classList.add('input-bottom-validate');
     } else if (this.state.errors.length > 0) {
     } else {
+      this.setState({
+        isLoading: true
+      });
       // Make an object and send it
       const obj = {
         from: this.state.from,
@@ -225,6 +229,9 @@ export default class ContactForm extends React.Component {
         .then(resp => resp.json())
         .then(() => {
           // Alert after submiting the form
+          this.setState({
+            isLoading: false
+          });
           Swal.fire({
             title: 'Sukces!',
             text: 'Wiadomość e-mail została wysłana prawidłowo',
@@ -322,6 +329,14 @@ export default class ContactForm extends React.Component {
                 <button className={this.props.btn + ' btn btn-primary'} type='submit' name='action'>
                   Wyślij
                 </button>
+                {this.state.isLoading && (
+                  <div className='loading'>
+                    <div>
+                      <img src='Spinner-1s-200px.svg' alt='' />
+                      <div>Wysyłanie wiadomości...</div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </form>

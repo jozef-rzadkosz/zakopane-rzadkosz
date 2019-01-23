@@ -1,14 +1,12 @@
 const express = require('express');
+const contact = require('./routes/contact');
 const app = express();
 
 app.use(express.json());
+app.use('/contact', contact);
 
 app.get('/api/cat', (req, res) => {
   res.send('Hello cats!');
-});
-
-app.post('/contact', (req, res) => {
-  res.send(req.body);
 });
 
 const PORT = process.env.PORT || 5000;
