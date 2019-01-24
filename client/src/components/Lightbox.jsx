@@ -17,7 +17,7 @@ export default class Lightbox extends React.Component {
 
     if (window.innerWidth > 768) {
       let index = parseInt(e.target.dataset.image);
-      console.log(index);
+
       await this.setState({
         isLoading: true,
         openImage: index
@@ -82,7 +82,7 @@ export default class Lightbox extends React.Component {
                 </button>
                 {this.state.isLoading && (
                   <div className='loading'>
-                    <img src='Spinner-1s-200px.svg' alt='' />
+                    <img src='Spinner-1s-200px-white.svg' alt='' />
                     Loading...
                   </div>
                 )}

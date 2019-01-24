@@ -24,7 +24,7 @@ class Home extends Component {
           </div>
           <div>
             W odległości ok. 1km znajduje się też stacja PKN Orlen oraz restauracja McDonald's. Możliwy jest także dowóz
-            na telefon wróżnych pizzeriach oraz tego typu obiektach.
+            na telefon w różnych pizzeriach oraz tego typu obiektach.
           </div>
           <div>
             Jest tu także do dyspozycji kominek przy którym można odpocząć po trudach górskich wędrówek. Aby poznać
