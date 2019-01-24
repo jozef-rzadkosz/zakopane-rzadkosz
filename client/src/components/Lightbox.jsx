@@ -14,10 +14,8 @@ export default class Lightbox extends React.Component {
 
   startLightbox = async e => {
     e.preventDefault();
-
     if (window.innerWidth > 768) {
       let index = parseInt(e.target.dataset.image);
-
       await this.setState({
         isLoading: true,
         openImage: index
