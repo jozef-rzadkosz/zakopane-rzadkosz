@@ -26,6 +26,10 @@ header {
     .menu {
       z-index: 1080;
       position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 50px;
       h1 {
         font: {
           family: $font-Meri;
@@ -33,10 +37,6 @@ header {
           weight: bold;
         }
       }
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 50px;
       ul.nav {
         width: 45%;
         display: flex;
@@ -125,5 +125,29 @@ header {
 @media only screen and (max-width: 2000px) {
   header {
     height: 100vh;
+  }
+}
+
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+  header {
+    .container {
+      max-width: 100%;
+      .menu {
+        h1 {
+          font-size: 22px;
+        }
+        ul.nav {
+          width: 55%;
+        }
+      }
+      .offer > p {
+        font-size: 26px;
+      }
+      .qoute {
+        width: 90%;
+        margin: 0 auto;
+        font-size: 18px;
+      }
+    }
   }
 }
