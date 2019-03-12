@@ -13,7 +13,7 @@ class Gallery extends Component {
       id: 2,
       url: 'images/tanie-pokoje-w-zakopanem.jpg',
       tb: 'images/tb/tanie-pokoje-w-zakopanem.jpg',
-      alt: 'tanie pokoje w zakopanem'
+      alt: 'Tanie pokoje w zakopanem'
     },
     {
       id: 3,
