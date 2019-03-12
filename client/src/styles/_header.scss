@@ -2,7 +2,7 @@
 
 header {
   height: 1000px;
-  min-height: 700px;
+  min-height: 500px;
   color: $color-white;
   max-width: 2560px;
   position: relative;
@@ -17,6 +17,7 @@ header {
     background-image: url('~/images/(23).jpg');
     background-position: center;
     background-size: cover;
+    background-attachment: fixed;
     filter: brightness(0.5);
   }
   .container {
@@ -121,7 +122,7 @@ header {
   }
 }
 
-@media only screen and (max-width: 1600px) {
+@media only screen and (max-width: 2000px) {
   header {
     height: 100vh;
   }
