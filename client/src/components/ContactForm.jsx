@@ -208,6 +208,7 @@ export default class ContactForm extends React.Component {
     } else {
       // Make an object and send it
       const obj = {
+        from: this.props.from,
         firstName: this.state.firstName,
         surname: this.state.surname,
         email: this.state.email,
