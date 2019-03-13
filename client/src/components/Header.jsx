@@ -81,7 +81,7 @@ class Header extends Component {
             <p>Sprawdź naszą ofertę!</p>
             <button onClick={this.goToAboutUs}>Sprawdź</button>
           </div>
-          <q className='qoute'>Dom nie jest tam gdzie mieszkamy, ale tam, gdzie kochamy i jesteśmy kochani.</q>
+          <div className='qoute'>"Dom nie jest tam gdzie mieszkamy, ale tam, gdzie kochamy i jesteśmy kochani."</div>
         </div>
       </header>
     );
