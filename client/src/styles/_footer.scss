@@ -4,7 +4,7 @@ footer {
   display: flex;
   justify-content: center;
   color: $color-white;
-  padding: 50px;
+  padding: 50px 0;
   font: {
     family: $font-Meri;
   }
@@ -15,5 +15,11 @@ footer {
       color: $main-color;
       text-decoration: none;
     }
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  footer {
+    font-size: 12px;
   }
 }

@@ -7,7 +7,7 @@ class Footer extends Component {
       <footer>
         <div>
           Copyright &copy; {this.date.getFullYear()} |{' '}
-          <a href='https://github.com/freestyle09' target='_blank'>
+          <a href='https://jozefrzadkosz-portfolio.pl' target='_blank'>
             Józef Rzadkosz
           </a>
         </div>
