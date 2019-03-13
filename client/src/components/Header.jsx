@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 class Header extends Component {
   goto = selector => {
+    this.closeMenu();
     if (window.location.pathname !== '/') {
       this.constructor.changeUrl();
     }
@@ -36,6 +37,14 @@ class Header extends Component {
     this.button.current.classList.toggle('menu-button-active');
   };
 
+  closeMenu = () => {
+    if (this.menu.current.classList.contains('menu-active')) {
+      this.clickable.current.classList.remove('clickable');
+      this.menu.current.classList.remove('menu-active');
+      this.button.current.classList.remove('menu-button-active');
+    }
+  };
+
   menu = React.createRef();
   button = React.createRef();
   clickable = React.createRef();
@@ -62,7 +71,7 @@ class Header extends Component {
               </li>
             </ul>
             <button onClick={this.showMenu} ref={this.button} className='menu-button'>
-              {/* <i className='fas fa-bars' /> */}Menu
+              <i className='fas fa-bars' />
             </button>
             <div className='click-helper' ref={this.clickable} onClick={this.closeMenu} />
           </div>

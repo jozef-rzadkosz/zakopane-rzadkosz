@@ -63,6 +63,9 @@ header {
       button.menu-button {
         display: none;
       }
+      .click-helper {
+        display: none;
+      }
     }
     .offer {
       z-index: 1020;
@@ -164,7 +167,9 @@ header {
         align-items: center;
         justify-content: center;
         ul.nav {
-          display: none;
+          width: 0;
+          height: 0;
+          overflow: hidden;
         }
         ul.menu-active {
           position: fixed;
@@ -177,8 +182,11 @@ header {
           height: 100%;
           width: 200px;
           z-index: 1080;
+          transition: width 0.2s ease-in;
+          white-space: nowrap;
           > li {
             > a {
+              transition: none;
               display: inline-block;
               width: 100%;
               padding: 10px;
@@ -189,12 +197,25 @@ header {
         button.menu-button {
           display: block;
           position: fixed;
-          top: 0;
-          left: 0;
+          top: 5px;
+          left: 5px;
           color: $color-white;
           &-active {
-            left: 200px;
+            left: 205px;
+            transition: 0.2s ease-in;
           }
+          i {
+            font-size: 50px;
+            text-shadow: 1px 1px 2px $color-font;
+          }
+        }
+        .clickable {
+          display: inline-block;
+          position: fixed;
+          top: 0;
+          left: 0;
+          height: 100vh;
+          width: 100vw;
         }
       }
       .qoute {
