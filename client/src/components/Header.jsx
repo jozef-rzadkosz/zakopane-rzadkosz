@@ -29,6 +29,17 @@ class Header extends Component {
   goToContact = () => {
     this.goto('contact');
   };
+
+  showMenu = () => {
+    this.clickable.current.classList.toggle('clickable');
+    this.menu.current.classList.toggle('menu-active');
+    this.button.current.classList.toggle('menu-button-active');
+  };
+
+  menu = React.createRef();
+  button = React.createRef();
+  clickable = React.createRef();
+
   render() {
     return (
       <header>
@@ -36,7 +47,7 @@ class Header extends Component {
         <div className='container'>
           <div className='menu'>
             <h1>Zakopane-Rzadkosz.pl</h1>
-            <ul className='nav'>
+            <ul className='nav' ref={this.menu}>
               <li>
                 <a onClick={this.goToAboutUs}>O nas</a>
               </li>
@@ -50,6 +61,10 @@ class Header extends Component {
                 <a onClick={this.goToContact}>Kontakt</a>
               </li>
             </ul>
+            <button onClick={this.showMenu} ref={this.button} className='menu-button'>
+              {/* <i className='fas fa-bars' /> */}Menu
+            </button>
+            <div className='click-helper' ref={this.clickable} onClick={this.closeMenu} />
           </div>
 
           <div className='offer'>

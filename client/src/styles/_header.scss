@@ -60,6 +60,9 @@ header {
           }
         }
       }
+      button.menu-button {
+        display: none;
+      }
     }
     .offer {
       z-index: 1020;
@@ -148,6 +151,55 @@ header {
         width: 90%;
         margin: 0 auto;
         font-size: 18px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  header {
+    .container {
+      max-width: 100%;
+      .menu {
+        align-items: center;
+        justify-content: center;
+        ul.nav {
+          display: none;
+        }
+        ul.menu-active {
+          position: fixed;
+          display: flex;
+          justify-content: flex-start;
+          flex-direction: column;
+          top: 0;
+          left: 0;
+          background-color: $color-white;
+          height: 100%;
+          width: 200px;
+          z-index: 1080;
+          > li {
+            > a {
+              display: inline-block;
+              width: 100%;
+              padding: 10px;
+              color: $color-font;
+            }
+          }
+        }
+        button.menu-button {
+          display: block;
+          position: fixed;
+          top: 0;
+          left: 0;
+          color: $color-white;
+          &-active {
+            left: 200px;
+          }
+        }
+      }
+      .qoute {
+        width: 90%;
+        margin: 0 auto;
       }
     }
   }
