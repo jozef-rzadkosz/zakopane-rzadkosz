@@ -160,6 +160,15 @@
   #gallery {
     .gallery .container {
       max-width: 100%;
+      .grid-gallery .imageGallery1 {
+        text-align: center;
+      }
     }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #gallery .gallery .container .grid-gallery .imageGallery1 a::after {
+    display: none;
   }
 }
