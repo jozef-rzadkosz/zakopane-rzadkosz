@@ -23,6 +23,7 @@ header {
   .container {
     position: relative;
     height: 100%;
+    z-index: 0;
     .menu {
       z-index: 1080;
       position: relative;
@@ -138,6 +139,10 @@ header {
 
 @media only screen and (max-width: 991px) and (min-width: 768px) {
   header {
+    .background-image {
+      background-attachment: initial;
+      background-repeat: no-repeat;
+    }
     .container {
       max-width: 100%;
       .menu {
@@ -161,6 +166,10 @@ header {
 
 @media only screen and (max-width: 767px) {
   header {
+    .background-image {
+      background-attachment: initial;
+      background-repeat: no-repeat;
+    }
     .container {
       max-width: 100%;
       .menu {
@@ -196,12 +205,14 @@ header {
         }
         button.menu-button {
           display: block;
+          background-color: transparent;
+          border: none;
           position: fixed;
           top: 5px;
-          left: 5px;
+          left: 0;
           color: $color-white;
           &-active {
-            left: 205px;
+            left: 200px;
             transition: 0.2s ease-in;
           }
           i {

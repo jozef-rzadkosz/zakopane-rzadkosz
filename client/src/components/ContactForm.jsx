@@ -206,18 +206,17 @@ export default class ContactForm extends React.Component {
       document.getElementById('message').classList.add('input-bottom-validate');
     } else if (this.state.errors.length > 0) {
     } else {
-      this.setState({
-        isLoading: true
-      });
       // Make an object and send it
       const obj = {
-        from: this.state.from,
         firstName: this.state.firstName,
         surname: this.state.surname,
         email: this.state.email,
         phone: this.state.phone,
         message: this.state.message
       };
+      this.setState({
+        isLoading: true
+      });
       fetch('/contact', {
         method: 'POST',
         headers: {
@@ -229,17 +228,23 @@ export default class ContactForm extends React.Component {
         .then(resp => resp.json())
         .then(() => {
           // Alert after submiting the form
+          this.setState({
+            isLoading: false
+          });
           Swal.fire({
-            title: 'Sukces!',
-            text: 'Wiadomość e-mail została wysłana prawidłowo',
+            title: 'Success!',
+            text: 'Wiadomość e-mail wysłana prawidłowo',
             type: 'success',
             confirmButtonText: 'Zamknij'
           });
         })
         .catch(() => {
+          this.setState({
+            isLoading: false
+          });
           Swal.fire({
             title: 'Ups...',
-            text: 'Wiadomość e-mail nie została wysłana prawidłowo',
+            text: 'Wiadomość nie została wysłana',
             type: 'error',
             confirmButtonText: 'Zamknij'
           });
@@ -251,17 +256,15 @@ export default class ContactForm extends React.Component {
         el.value = '';
       }
       this.setState({
-        firstName: (this.state.firstName = ''),
-        surname: (this.state.surname = ''),
-        email: (this.state.email = ''),
-        phone: (this.state.phone = ''),
-        message: (this.state.message = '')
+        firstName: '',
+        surname: '',
+        email: '',
+        phone: '',
+        message: ''
       });
     }
-
     this.setState({
-      errors: this.errors,
-      isLoading: false
+      errors: this.errors
     });
   };
 
