@@ -77,8 +77,8 @@ class Header extends Component {
           </div>
 
           <div className='offer'>
-            <p>Szukasz dobrego miejsca na wypoczynek?</p>
-            <p>Sprawdź naszą ofertę!</p>
+            <h2>Szukasz dobrego miejsca na wypoczynek?</h2>
+            <h3>Sprawdź naszą ofertę!</h3>
             <button onClick={this.goToAboutUs}>Sprawdź</button>
           </div>
           <div className='qoute'>"Dom nie jest tam gdzie mieszkamy, ale tam, gdzie kochamy i jesteśmy kochani."</div>
