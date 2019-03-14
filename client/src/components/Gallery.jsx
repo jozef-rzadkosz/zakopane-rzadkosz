@@ -11,9 +11,9 @@ class Gallery extends Component {
     },
     {
       id: 2,
-      url: 'images/tanie-pokoje-w-zakopanem.jpg',
-      tb: 'images/tb/tanie-pokoje-w-zakopanem.jpg',
-      alt: 'Tanie pokoje w zakopanem'
+      url: 'images/wolne-pokoje-na-sylwestra.jpg',
+      tb: 'images/tb/wolne-pokoje-na-sylwestra.jpg',
+      alt: 'Wolne pokoje na sylwestra'
     },
     {
       id: 3,
@@ -35,9 +35,9 @@ class Gallery extends Component {
     },
     {
       id: 6,
-      url: 'images/pokoje-na-skoki-narciarskie.jpg',
-      tb: 'images/tb/pokoje-na-skoki-narciarskie.jpg',
-      alt: 'Pokoje na skoki narciarskie'
+      url: 'images/wolne-pokoje-na-skoki-narciarskie.jpg',
+      tb: 'images/tb/wolne-pokoje-na-skoki-narciarskie.jpg',
+      alt: 'Wolne pokoje na skoki narciarskie'
     },
     {
       id: 7,
