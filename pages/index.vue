@@ -1,16 +1,17 @@
 <template>
-  <main class="main">
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
-      aliquam asperiores assumenda earum est illum minima nesciunt, nihil
-      numquam perspiciatis porro possimus quidem recusandae suscipit
-      voluptatibus! Aperiam fugiat nemo quisquam! Cuj
-    </p>
-  </main>
+  <Header />
+  <AboutUs />
+  <InterestingPlaces />
 </template>
 
 <script lang="ts">
-export default {};
+import Header from '~/components/partials/Header.vue';
+import AboutUs from '~/components/partials/AboutUs.vue';
+import InterestingPlaces from '~/components/partials/InterestingPlaces.vue';
+
+export default {
+  components: { InterestingPlaces, AboutUs, Header },
+};
 </script>
 
 <style scoped lang="scss"></style>

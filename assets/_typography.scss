@@ -1,21 +1,52 @@
 @use 'mixins' as m;
+@use 'variables' as v;
 
 $headings: (
   h1: (
-    'size': 2.5rem,
-    'weight': 700,
-    'line-height': 1.3,
+    font-size: 2rem,
+    font-weight: 700,
+    line-height: 1.3,
     color: #00aabb,
-    'background-color': yellow,
+    background-color: yellow,
   ),
   h2: (
-    'size': 2rem,
-    'weight': 700,
-    'line-height': 1.3,
+    font-size: 1.75rem,
+    font-weight: 600,
+    line-height: 1.42,
+  ),
+  h3: (
+    font-size: 1.5rem,
+    font-weight: 600,
+  ),
+  h5: (
+    font-size: 1rem,
+    font-weight: 400,
+  ),
+  btn: (
+    font-size: 1rem,
   ),
 );
 
+$heading-elements: (h1, h2, h3, h4, h5, h6, button);
+
 @include m.generate-fonts($headings);
+@include m.set-font-family($heading-elements, v.$heading-font-family);
+
+body {
+  font-family: v.$body-font-family;
+}
+
+p {
+  font-size: 0.875rem;
+  line-height: 1.58;
+  &:where(:not(:last-child)) {
+    margin-bottom: 0.75rem;
+  }
+}
+
+.pre-line {
+  white-space: pre-line;
+}
 
 //@media screen and (max-width: 600px) {
 //  $headings: (

@@ -1,4 +1,19 @@
 @use 'breakpoints' as bp;
 
-$xs-and-down: map-get(bp.$breakpoints, 'xs-only');
+$md-and-up: map-get(bp.$breakpoints, 'md-and-up');
+$lg-and-up: map-get(bp.$breakpoints, 'lg-and-up');
+$xl-and-up: map-get(bp.$breakpoints, 'xl-and-up');
 
+$heading-font-family: 'Vollkorn', serif;
+$body-font-family: 'Raleway', sans-serif;
+
+$transition: 0.2s cubic-bezier(0, -0.2, 0.3, 1);
+
+:root {
+  --white: #fff;
+  --black: #000;
+  --primary: #fd5309;
+  --background: #191516;
+  --font: #191516;
+  --card-background: #262a2d;
+}

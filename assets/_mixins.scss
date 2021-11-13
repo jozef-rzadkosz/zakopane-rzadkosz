@@ -7,3 +7,14 @@
     }
   }
 }
+
+@mixin set-font-family($elements, $font-family) {
+  .font-heading {
+    font-family: $font-family;
+  }
+  @each $el in $elements {
+    #{$el} {
+      @extend .font-heading;
+    }
+  }
+}
