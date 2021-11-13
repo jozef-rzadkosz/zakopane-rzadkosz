@@ -1,0 +1,32 @@
+@use 'mixins' as m;
+
+$headings: (
+  h1: (
+    'size': 2.5rem,
+    'weight': 700,
+    'line-height': 1.3,
+    color: #00aabb,
+    'background-color': yellow,
+  ),
+  h2: (
+    'size': 2rem,
+    'weight': 700,
+    'line-height': 1.3,
+  ),
+);
+
+@include m.generate-fonts($headings);
+
+//@media screen and (max-width: 600px) {
+//  $headings: (
+//    h1: (
+//      'size': 1.5rem,
+//      color: red,
+//      'background-color': cyan,
+//    ),
+//    h2: (
+//      'size': 1rem,
+//    ),
+//  );
+//  @include m.generate-fonts($headings);
+//}

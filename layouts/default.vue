@@ -1,6 +1,6 @@
 <template>
   <main class="main">
-    <h1>Hello world Vue3 + Nuxt3</h1>
+    <h1 class="h1">Hello world Vue3 + Nuxt3</h1>
     <slot />
   </main>
 </template>
@@ -11,4 +11,4 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped lang="scss"></style>

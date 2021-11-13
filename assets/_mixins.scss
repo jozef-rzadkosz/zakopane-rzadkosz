@@ -1,0 +1,9 @@
+@mixin generate-fonts($headings) {
+  @each $el, $values in $headings {
+    .#{$el} {
+      @each $key, $value in $values {
+        #{$key}: $value;
+      }
+    }
+  }
+}

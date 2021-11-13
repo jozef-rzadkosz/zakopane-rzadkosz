@@ -1,0 +1,4 @@
+@use 'breakpoints' as bp;
+
+$xs-and-down: map-get(bp.$breakpoints, 'xs-only');
+
