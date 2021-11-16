@@ -104,7 +104,7 @@ export default {
 
 <style scoped lang="scss">
 .interesting {
-  padding: 4rem 0;
+  padding-top: 4rem;
   background-color: var(--background);
   color: var(--white);
   &__title {
