@@ -2,9 +2,10 @@
   --white: #fff;
   --black: #000;
   --primary: #fd5309;
-  --background: #191516;
+  --background: #1A1E21;
   --font: #191516;
   --card-background: #262a2d;
+  --gallery-background: #F4F4F4;
 }
 
 .h1 {
