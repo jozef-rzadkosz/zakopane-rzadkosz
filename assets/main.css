@@ -8,6 +8,41 @@
   --gallery-background: #F4F4F4;
 }
 
+@font-face {
+  font-family: "Raleway";
+  src: url("fonts/Raleway-Regular.woff2") format("woff2"), url("fonts/Raleway-Regular.woff") format("woff"), url("fonts/Raleway-Regular.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Vollkorn";
+  src: url("fonts/Vollkorn-Regular.woff2") format("woff2"), url("fonts/Vollkorn-Regular.woff") format("woff"), url("fonts/Vollkorn-Regular.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("fonts/Raleway-Bold.woff2") format("woff2"), url("fonts/Raleway-Bold.woff") format("woff"), url("fonts/Raleway-Bold.ttf") format("ttf");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("fonts/Raleway-Medium.woff2") format("woff2"), url("fonts/Raleway-Medium.woff") format("woff"), url("fonts/Raleway-Medium.ttf") format("ttf");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Vollkorn";
+  src: url("fonts/Vollkorn-SemiBold.woff2") format("woff2"), url("fonts/Vollkorn-SemiBold.woff") format("woff"), url("fonts/Vollkorn-SemiBold.ttf") format("ttf");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
 .h1 {
   font-size: 2rem;
   font-weight: 700;
@@ -30,6 +65,14 @@
 .h5 {
   font-size: 1rem;
   font-weight: 400;
+}
+
+.body-1 {
+  font-size: 0.875rem;
+}
+
+.body-2 {
+  font-size: 0.75rem;
 }
 
 .btn {

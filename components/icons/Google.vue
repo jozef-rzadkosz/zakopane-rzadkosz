@@ -1,0 +1,16 @@
+<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="10.823"
+    height="11"
+    viewBox="0 0 10.823 11"
+  >
+    <path
+      id="Icon_awesome-google"
+      data-name="Icon awesome-google"
+      d="M10.823,6.191A5.108,5.108,0,0,1,5.5,11.563a5.5,5.5,0,1,1,0-11A5.289,5.289,0,0,1,9.188,2l-1.5,1.439a3.386,3.386,0,0,0-5.6,2.621A3.445,3.445,0,0,0,5.5,9.535,2.974,2.974,0,0,0,8.623,7.165H5.5V5.273h5.236A4.822,4.822,0,0,1,10.823,6.191Z"
+      transform="translate(0 -0.563)"
+      fill="currentColor"
+    />
+  </svg>
+</template>

@@ -1,5 +1,6 @@
 @use 'mixins' as m;
 @use 'variables' as v;
+@import 'fonts';
 
 $headings: (
   h1: (
@@ -21,6 +22,12 @@ $headings: (
   h5: (
     font-size: 1rem,
     font-weight: 400,
+  ),
+  body-1: (
+    font-size: 0.875rem,
+  ),
+  body-2: (
+    font-size: 0.75rem,
   ),
   btn: (
     font-size: 1rem,

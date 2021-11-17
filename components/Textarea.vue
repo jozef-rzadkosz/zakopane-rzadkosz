@@ -1,5 +1,5 @@
 <template>
-  <input
+  <textarea
     :type="type"
     :id="name"
     :name="name"
@@ -13,7 +13,7 @@
 import { computed } from 'vue';
 
 export default {
-  name: 'Input',
+  name: 'Textarea',
   props: {
     modelValue: {
       type: String,
@@ -51,8 +51,8 @@ export default {
 @use './assets/variables' as v;
 .input {
   border-radius: 6px;
-  padding: 0 0.625rem;
-  height: 2.25rem;
+  padding: 0.625rem;
+  height: 7rem;
   width: 100%;
   font-family: v.$heading-font-family;
   font-size: 0.875rem;

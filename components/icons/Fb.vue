@@ -1,0 +1,16 @@
+<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="5.937"
+    height="11.085"
+    viewBox="0 0 5.937 11.085"
+  >
+    <path
+      id="Icon_awesome-facebook-f"
+      data-name="Icon awesome-facebook-f"
+      d="M7.158,6.236l.308-2.006H5.54v-1.3A1,1,0,0,1,6.672,1.844h.875V.136A10.672,10.672,0,0,0,5.993,0,2.449,2.449,0,0,0,3.372,2.7V4.229H1.609V6.236H3.372v4.85H5.54V6.236Z"
+      transform="translate(-1.609)"
+      fill="currentColor"
+    />
+  </svg>
+</template>

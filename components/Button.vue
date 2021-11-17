@@ -23,6 +23,7 @@ export default {
 .btn {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 0.5rem 1.875rem;
   background: var(--primary);
   border: 2px solid var(--primary);
