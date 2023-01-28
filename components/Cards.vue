@@ -1,9 +1,7 @@
 <template>
-  <section class="cards py-10">
-    <v-container class="cards__container">
-      <slot />
-    </v-container>
-  </section>
+  <div class="cards">
+    <slot />
+  </div>
 </template>
 
 <script>
@@ -14,10 +12,8 @@ export default {
 
 <style scoped lang="scss">
 .cards {
-  &__container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-    gap: 2rem;
-  }
+  display: grid;
+  grid-auto-flow: row;
+  gap: 2.5rem;
 }
 </style>

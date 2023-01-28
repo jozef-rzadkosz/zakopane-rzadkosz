@@ -1,10 +1,11 @@
 <template>
   <img
-    class="lazy-img"
+    class="lazy-img lazy-img__loading"
     :src="src"
-    @onload="onLoad"
     :alt="alt"
-    ref="image"
+    :data-lazy-srcset="srcset"
+    :data-lazy-src="lazySrc"
+    v-on="$listeners"
   />
 </template>
 
@@ -15,18 +16,18 @@ export default {
       type: String,
       required: true,
     },
-    // srcset: {
-    //   type: String,
-    //   required: true,
-    // },
-    alt: {
-      type: [String],
+    srcset: {
+      type: String,
       required: true,
     },
-  },
-
-  methods: {
-    onLoad() {},
+    lazySrc: {
+      type: String,
+      required: true,
+    },
+    alt: {
+      type: [String],
+      // required: true,
+    },
   },
 };
 </script>
@@ -34,5 +35,11 @@ export default {
 <style scoped lang="scss">
 .lazy-img {
   width: 100%;
+  object-fit: cover;
+  transition: filter 0.2s $cubic-bezier;
+  min-height: 19rem;
+  &__loading {
+    filter: blur(10px);
+  }
 }
 </style>

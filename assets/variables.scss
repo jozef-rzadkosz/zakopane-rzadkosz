@@ -1,22 +1,22 @@
 @import 'mixins';
 @import '~vuetify/src/styles/settings/_variables';
 
-$body-font-family: 'Lato', sans-serif;
 $heading-font-family: 'Vollkorn', serif;
+$body-font-family: 'Raleway', sans-serif;
 
-$black-text-shadow: rgba(0, 0, 0, 0.7);
+$button-inner-shadow: rgba(0, 0, 0, 0.3);
 $cubic-bezier: cubic-bezier(0, -0.2, 0.3, 1);
 
 $headings: (
   'h1': (
-    'size': clamp(3.5rem, 10vw, 6.25rem),
+    'size': clamp(3.5rem, 6vw, 6.25rem),
   ),
   'h2': (
-    'size': 2rem,
+    'size': clamp(1.5rem, 6vw, 2rem),
     'line-height': 1.25,
   ),
   'h3': (
-    'size': 1.5rem,
+    'size': clamp(1rem, 6vw, 1.5rem),
     'line-height': 1.33,
   ),
   'button': (

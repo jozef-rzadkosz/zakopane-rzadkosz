@@ -1,4 +1,4 @@
-# zdobywcy-tatr
+# Zakopane-Rzadkosz
 
 ## Build Setup
 

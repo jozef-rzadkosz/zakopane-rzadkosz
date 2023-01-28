@@ -1,69 +1,158 @@
 <template>
   <nav class="nav">
-    <ul class="nav__list px-0">
-      <nuxt-link
-        :to="item.url"
-        v-for="item in navItems"
-        :key="item.id"
-        class="nav__item d-flex flex-column align-center justify-center text-decoration-none px-1"
-      >
-        <svg-icon
-          :name="item.icon"
-          width="24"
-          height="24"
-          v-show="!$vuetify.breakpoint.mdAndUp"
-        ></svg-icon>
-        <span class="font-weight-bold">{{ item.title }}</span>
-      </nuxt-link>
-    </ul>
+    <div
+      class="nav__wrapper px-6"
+      :class="{
+        'nav__wrapper--active': isScrollHigher,
+        'nav__wrapper--show': isScrollUp && isScrollHigher,
+      }"
+    >
+      <svg-icon
+        class="nav__button white--text"
+        name="menu"
+        width="22"
+        height="22"
+        @click="drawer = !drawer"
+      ></svg-icon>
+    </div>
+    <v-navigation-drawer
+      v-model="drawer"
+      right
+      temporary
+      app
+    >
+      <div class="nav__container d-flex flex-column justify-space-between">
+        <v-list>
+          <v-list-item>
+            <v-btn
+              fab
+              small
+              outlined
+              elevation="0"
+              @click="drawer = false"
+              type="button"
+              class="nav__close my-4"
+            >
+              <svg-icon
+                class="nav__close-icon"
+                name="close"
+                size="24"
+              ></svg-icon>
+            </v-btn>
+          </v-list-item>
+          <v-list-item
+            v-for="item in navItems"
+            :key="item.id"
+            class="nav__item mx-4 font-weight-bold"
+            active-class="nav__item--active"
+            :to="item.url"
+            :ripple="false"
+          >
+            <span>{{ item.name }}</span>
+          </v-list-item>
+        </v-list>
+        <v-list class="nav__social mx-4 pb-8">
+          <v-list-item
+            class="nav__social-item pa-0"
+            v-for="item in socialItems"
+            :key="item.id"
+            :href="item.url"
+            target="_blank"
+          >
+            <v-btn
+              :name="item.name"
+              variant="social"
+            ></v-btn>
+          </v-list-item>
+        </v-list>
+      </div>
+    </v-navigation-drawer>
   </nav>
 </template>
 
 <script>
-import navItems from '@/mixins/navItems';
+import navItems from '~/mixins/navItems';
 
 export default {
+  name: 'Navigation',
   mixins: [navItems],
+  data() {
+    return {
+      drawer: false,
+      scrollLastPosition: 0,
+      isScrollUp: true,
+      isScrollHigher: false,
+    };
+  },
+  // TODO: Add Intersection observer
+  beforeMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      this.isScrollUp = this.scrollLastPosition > window.scrollY;
+      this.isScrollHigher = window.scrollY > 60;
+      this.scrollLastPosition = window.scrollY;
+    },
+  },
 };
 </script>
 
 <style scoped lang="scss">
 .nav {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  background-color: var(--v-secondary-base);
-  width: 100%;
-  height: 50px;
-
-  @media #{$md-and-up} {
-    position: static;
-    background-color: transparent;
-    height: auto;
-    width: auto;
-  }
-  &__list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-    height: 100%;
-    list-style: none;
-    @media #{$md-and-up} {
-      grid-template-columns: repeat(auto-fit, minmax(0, max-content));
-      justify-content: center;
-      gap: 2.5rem;
+  position: relative;
+  z-index: 999;
+  &__wrapper {
+    position: fixed;
+    top: 0;
+    height: 3.75rem;
+    width: 100%;
+    transition: 0.2s $cubic-bezier;
+    &--active {
+      transform: translateY(-100%);
     }
+    &--show {
+      transform: translateY(0);
+      box-shadow: 0 3px 6px var(--v-black-base);
+    }
+  }
+  &__container {
+    height: 100%;
+  }
+  &__close {
+    border: 1px solid var(--v-border-base);
+  }
+  &__button,
+  &__close-icon {
+    width: 1.4rem;
+    height: 1.4rem;
+    cursor: pointer;
   }
   &__item {
-    font-size: clamp(0.625rem, 3.25vw, 0.75rem);
-    height: 100%;
-    color: var(--v-white-base);
-    transition: 0.2s $cubic-bezier;
-    &:hover {
-      color: var(--v-primary-base);
+    &:not(:last-of-type) {
+      border-bottom: 1px solid var(--v-border-base);
     }
-    @media #{$md-and-up} {
-      font-size: 1.25rem;
+    &--active {
+      color: var(--v-primary-base) !important;
+      background-color: transparent !important;
+      outline-color: transparent !important;
+      &::before,
+      &::after {
+        display: none;
+      }
     }
+  }
+  &__social {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, max-content);
+    gap: 0.5rem;
+  }
+  &__social-item {
+    min-height: 2.375rem !important;
   }
 }
 </style>

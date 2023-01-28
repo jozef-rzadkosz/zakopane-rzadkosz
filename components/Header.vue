@@ -1,25 +1,35 @@
 <template>
   <header class="header">
-    <img
+    <LazyImage
       class="header__image"
-      :src="image.src"
-      :alt="image.alt"
-      :srcset="image.webpSrcSet"
+      :src="header.image?.blurUpThumb"
+      :alt="header.image?.responsiveImage?.alt"
+      :srcset="header.image?.responsiveImage?.webpSrcSet"
+      :lazy-src="header.image?.responsiveImage?.src"
     />
+    <div class="header__cover" />
     <v-container class="header__container text-center white--text">
-      <h1 class="header__title text-h1">Zdobywcy Tatr</h1>
-      <h2 class="header__author font-weight-bold">
-        Wawrzyniec Gąsienica Mracielnik
+      <Logo />
+      <h2 class="header__author text-h2 font-weight-bold">
+        {{ header?.title }}
       </h2>
-      <Navigation />
+      <p class="header__subtitle">
+        {{ header?.subtitle }}
+      </p>
+      <Button variant="primary">{{ header?.buttonTitle }}</Button>
     </v-container>
+    <Navigation />
+    <GoToTop />
   </header>
 </template>
 
 <script>
+import sanitizeText from '~/mixins/sanitizeText';
+
 export default {
+  mixins: [sanitizeText],
   props: {
-    image: {
+    header: {
       type: Object,
       required: true,
     },
@@ -30,34 +40,26 @@ export default {
 <style scoped lang="scss">
 .header {
   position: relative;
-  max-height: 100vh;
+  height: clamp(30rem, 30vw, 50rem);
   &__image {
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 0;
+    height: 100%;
+  }
+  &__cover {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    z-index: 1;
     width: 100%;
     height: 100%;
-    object-fit: cover;
   }
   &__container {
     position: relative;
-    z-index: 1;
-    min-height: 300px;
-    display: grid;
-    grid-auto-columns: minmax(0, 1fr);
-    align-items: center;
-    align-content: center;
-    @media #{$md-and-up} {
-      min-height: 32rem;
-      gap: 2.5rem;
-    }
-  }
-  &__title,
-  &__author {
-    text-shadow: 1px 1px 10px $black-text-shadow;
-  }
-  &__author {
-    font-size: clamp(1.25rem, 5vw, 1.5rem);
+    z-index: 2;
   }
 }
 </style>

@@ -15,6 +15,7 @@
 body {
   overflow-x: hidden;
   padding-bottom: 3.125rem;
+  color: var(--v-font-base);
   @media #{$md-and-up} {
     padding-bottom: 0;
   }

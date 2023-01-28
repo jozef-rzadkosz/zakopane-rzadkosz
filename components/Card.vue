@@ -1,41 +1,34 @@
 <template>
   <div class="card">
-    <div>
-      <img
-        :src="image.src"
-        :alt="image.alt"
-        :srcset="image.webpSrcSet"
-        class="card__image"
-      />
-    </div>
-    <h2 class="card__title text-h2 text-uppercase primary--text pb-3">
-      {{ title }}
-    </h2>
-    <div
-      class="card__description"
-      v-html="sanitizeText(description)"
-    ></div>
+    <Heading
+      class="card__title mb-10"
+      :title="card?.title"
+      :position="position"
+    />
+    <LazyImage
+      :alt="card?.image?.responsiveImage?.alt"
+      :srcset="card?.image?.responsiveImage?.webpSrcSet"
+      :lazy-src="card?.image?.responsiveImage?.src"
+      :src="card?.image?.blurUpThumb"
+      class="mb-4"
+    />
+    <div v-html="sanitizeText(card.description)"></div>
   </div>
 </template>
 
 <script>
-import sanitizeText from '@/mixins/sanitizeText';
+import sanitizeText from '~/mixins/sanitizeText';
 
 export default {
   name: 'Card',
   mixins: [sanitizeText],
   props: {
-    image: {
+    card: {
       type: Object,
       required: true,
     },
-    title: {
+    position: {
       type: String,
-      required: true,
-    },
-    description: {
-      type: String,
-      required: true,
     },
   },
 };
@@ -43,10 +36,11 @@ export default {
 
 <style scoped lang="scss">
 .card {
-  &__image {
-    width: 100%;
-    height: 15rem;
-    object-fit: cover;
+  display: grid;
+  &:nth-child(2n + 2) &__title {
+    @media #{$md-and-up} {
+      justify-self: end;
+    }
   }
   &__title {
   }

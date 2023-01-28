@@ -1,7 +1,8 @@
 <template>
   <v-app dark>
-    <nuxt-child />
-    <Footer />
-    <CallButton />
+    <LazyImageWrapper>
+      <nuxt-child />
+      <Footer />
+    </LazyImageWrapper>
   </v-app>
 </template>
