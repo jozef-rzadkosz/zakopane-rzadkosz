@@ -1,13 +1,7 @@
 <template>
-  <main class="main">
-    <slot />
-  </main>
+  <v-app dark>
+    <nuxt-child />
+    <Footer />
+    <CallButton />
+  </v-app>
 </template>
-
-<script>
-export default {
-  name: 'default',
-};
-</script>
-
-<style scoped lang="scss"></style>

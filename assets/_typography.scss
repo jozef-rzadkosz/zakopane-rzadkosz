@@ -1,70 +1,49 @@
-@use 'mixins' as m;
-@use 'variables' as v;
-@import 'fonts';
-
-$headings: (
-  h1: (
-    font-size: 2rem,
-    font-weight: 700,
-    line-height: 1.3,
-    color: #00aabb,
-    background-color: yellow,
-  ),
-  h2: (
-    font-size: 1.75rem,
-    font-weight: 600,
-    line-height: 1.42,
-  ),
-  h3: (
-    font-size: 1.5rem,
-    font-weight: 600,
-  ),
-  h5: (
-    font-size: 1rem,
-    font-weight: 400,
-  ),
-  body-1: (
-    font-size: 0.875rem,
-  ),
-  body-2: (
-    font-size: 0.75rem,
-  ),
-  btn: (
-    font-size: 1rem,
-  ),
-);
-
-$heading-elements: (h1, h2, h3, h4, h5, h6, button);
-
-@include m.generate-fonts($headings);
-@include m.set-font-family($heading-elements, v.$heading-font-family);
-
-body {
-  font-family: v.$body-font-family;
+@font-face {
+  font-family: 'Raleway';
+  src: url('fonts/Raleway-Regular.woff2') format('woff2'),
+    url('fonts/Raleway-Regular.woff') format('woff'),
+    url('fonts/Raleway-Regular.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
-p {
-  font-size: 0.875rem;
-  line-height: 1.58;
-  &:where(:not(:last-child)) {
-    margin-bottom: 0.75rem;
-  }
+@font-face {
+  font-family: 'Vollkorn';
+  src: url('fonts/Vollkorn-Regular.woff2') format('woff2'),
+    url('fonts/Vollkorn-Regular.woff') format('woff'),
+    url('fonts/Vollkorn-Regular.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
-.pre-line {
-  white-space: pre-line;
+@font-face {
+  font-family: 'Raleway';
+  src: url('fonts/Raleway-Bold.woff2') format('woff2'),
+    url('fonts/Raleway-Bold.woff') format('woff'),
+    url('fonts/Raleway-Bold.ttf') format('ttf');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
 
-//@media screen and (max-width: 600px) {
-//  $headings: (
-//    h1: (
-//      'size': 1.5rem,
-//      color: red,
-//      'background-color': cyan,
-//    ),
-//    h2: (
-//      'size': 1rem,
-//    ),
-//  );
-//  @include m.generate-fonts($headings);
-//}
+@font-face {
+  font-family: 'Raleway';
+  src: url('fonts/Raleway-Medium.woff2') format('woff2'),
+    url('fonts/Raleway-Medium.woff') format('woff'),
+    url('fonts/Raleway-Medium.ttf') format('ttf');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Vollkorn';
+  src: url('fonts/Vollkorn-SemiBold.woff2') format('woff2'),
+    url('fonts/Vollkorn-SemiBold.woff') format('woff'),
+    url('fonts/Vollkorn-SemiBold.ttf') format('ttf');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}

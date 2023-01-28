@@ -1,22 +1,34 @@
 <template>
   <div class="card">
-    <div class="card__container container">
-      <Image class="card__image" :src="src" :alt="alt" />
-      <h3 class="card__title h3">{{ title }}</h3>
-      <p class="card__description">{{ description }}</p>
-      <Button icon @click.native="navigate">Zobacz więcej</Button>
+    <div>
+      <img
+        :src="image.src"
+        :alt="image.alt"
+        :srcset="image.webpSrcSet"
+        class="card__image"
+      />
     </div>
+    <h2 class="card__title text-h2 text-uppercase primary--text pb-3">
+      {{ title }}
+    </h2>
+    <div
+      class="card__description"
+      v-html="sanitizeText(description)"
+    ></div>
   </div>
 </template>
 
-<script lang="ts">
-import Image from '~/components/Image.vue';
-import Button from '~/components/Button.vue';
+<script>
+import sanitizeText from '@/mixins/sanitizeText';
 
 export default {
   name: 'Card',
-  components: { Button, Image },
+  mixins: [sanitizeText],
   props: {
+    image: {
+      type: Object,
+      required: true,
+    },
     title: {
       type: String,
       required: true,
@@ -25,39 +37,16 @@ export default {
       type: String,
       required: true,
     },
-    src: {
-      type: String,
-      required: true,
-    },
-    link: {
-      type: String,
-      required: true,
-    },
-    alt: {
-      type: String,
-      required: true,
-    },
-  },
-  methods: {
-    navigate() {
-      window.open(this.link, '_blank');
-    },
   },
 };
 </script>
 
 <style scoped lang="scss">
 .card {
-  padding: 2rem 0;
-  &:nth-child(odd) {
-    background-color: var(--card-background);
-  }
-  &__container {
-    display: grid;
-    gap: 1.25rem;
-    justify-items: start;
-  }
   &__image {
+    width: 100%;
+    height: 15rem;
+    object-fit: cover;
   }
   &__title {
   }

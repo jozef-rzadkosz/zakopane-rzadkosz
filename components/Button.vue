@@ -1,43 +1,67 @@
 <template>
-  <button class="btn">
+  <v-btn
+    class="btn text-button"
+    :class="`btn--${variant}`"
+    v-bind="$attrs"
+    v-on="$listeners"
+  >
     <slot />
-    <Arrow class="btn__icon" v-if="icon" />
-  </button>
+    <svg-icon
+      v-show="icon"
+      class="btn__icon"
+      name="arrow"
+    ></svg-icon>
+  </v-btn>
 </template>
 
 <script>
-import Arrow from '~/components/Arrow';
-
 export default {
-  name: 'Button',
-  components: { Arrow },
+  name: 'MmpButton',
   props: {
-    icon: [Boolean],
+    variant: {
+      type: String,
+      required: true,
+    },
+    icon: {
+      type: Boolean,
+      default: () => false,
+    },
   },
 };
 </script>
 
 <style scoped lang="scss">
-@use './assets/variables' as v;
-
 .btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem 1.875rem;
-  background: var(--primary);
-  border: 2px solid var(--primary);
-  color: var(--white);
-  border-radius: 6px;
-  transition: v.$transition;
-  cursor: pointer;
-  font-weight: 600;
-  &:hover {
-    background-color: var(--white);
-    color: var(--primary);
+  padding-bottom: 4px !important;
+  min-height: 3rem;
+  height: 3.875rem !important;
+  transition: 0.2s $cubic-bezier;
+  width: 100%;
+  color: var(--v-white-base) !important;
+  border-radius: 0;
+  &--primary {
+    color: var(--v-primary-base) !important;
+    background-color: transparent !important;
+    border: 3px solid var(--v-primary-base);
+    &:hover {
+      background-color: var(--v-primary-base) !important;
+      color: var(--v-white-base) !important;
+    }
+  }
+
+  &--large-text ::v-deep .v-btn__content {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    flex: unset !important;
+    white-space: normal;
+  }
+  &--no-upper-borders {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
   }
   &__icon {
-    margin-left: 0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
   }
 }
 </style>

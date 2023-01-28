@@ -1,20 +1,8 @@
-@mixin generate-fonts($headings) {
-  @each $el, $values in $headings {
-    .#{$el} {
-      @each $key, $value in $values {
-        #{$key}: $value;
-      }
-    }
-  }
-}
-
-@mixin set-font-family($elements, $font-family) {
-  .font-heading {
-    font-family: $font-family;
-  }
-  @each $el in $elements {
-    #{$el} {
-      @extend .font-heading;
+@mixin generateButtonVariant($class, $bg-color, $color) {
+  &--#{$class} {
+    &:hover {
+      background-color: var(--v-#{$bg-color}-base) !important;
+      color: var(--v-#{$color}-base) !important;
     }
   }
 }

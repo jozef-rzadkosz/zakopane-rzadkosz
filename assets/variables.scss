@@ -1,20 +1,37 @@
-@use 'breakpoints' as bp;
+@import 'mixins';
+@import '~vuetify/src/styles/settings/_variables';
 
-$md-and-up: map-get(bp.$breakpoints, 'md-and-up');
-$lg-and-up: map-get(bp.$breakpoints, 'lg-and-up');
-$xl-and-up: map-get(bp.$breakpoints, 'xl-and-up');
-
+$body-font-family: 'Lato', sans-serif;
 $heading-font-family: 'Vollkorn', serif;
-$body-font-family: 'Raleway', sans-serif;
 
-$transition: 0.2s cubic-bezier(0, -0.2, 0.3, 1);
+$black-text-shadow: rgba(0, 0, 0, 0.7);
+$cubic-bezier: cubic-bezier(0, -0.2, 0.3, 1);
 
-:root {
-  --white: #fff;
-  --black: #000;
-  --primary: #fd5309;
-  --background: #1A1E21;
-  --font: #191516;
-  --card-background: #262a2d;
-  --gallery-background: #F4F4F4;
-}
+$headings: (
+  'h1': (
+    'size': clamp(3.5rem, 10vw, 6.25rem),
+  ),
+  'h2': (
+    'size': 2rem,
+    'line-height': 1.25,
+  ),
+  'h3': (
+    'size': 1.5rem,
+    'line-height': 1.33,
+  ),
+  'button': (
+    'size': 1rem,
+    'weight': 900,
+    'text-transform': unset,
+    'letter-spacing': initial,
+  ),
+);
+
+// Breakpoints
+$xl-only: map-get($display-breakpoints, 'xl-only');
+$lg-and-up: map-get($display-breakpoints, 'lg-and-up');
+$md-only: map-get($display-breakpoints, 'md-only');
+$md-and-up: map-get($display-breakpoints, 'md-and-up');
+$sm-only: map-get($display-breakpoints, 'sm-only');
+$sm-and-up: map-get($display-breakpoints, 'sm-and-up');
+$xs-only: map-get($display-breakpoints, 'xs-only');
