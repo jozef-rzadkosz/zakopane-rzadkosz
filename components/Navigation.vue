@@ -1,16 +1,25 @@
 <template>
   <nav class="nav">
     <div
-      class="nav__wrapper d-flex px-6"
+      class="nav__wrapper d-flex justify-space-between align-center px-6"
       :class="{
         'nav__wrapper--active': isScrollHigher,
         'nav__wrapper--show': isScrollUp && isScrollHigher,
       }"
     >
-      <Logo />
+      <Logo
+        variant="left"
+        :class="{
+          'black--text': isScrollHigher,
+          'white--text': !isScrollHigher,
+        }"
+      />
       <svg-icon
-        class="nav__button white--text"
-        :class="{ 'black--text': isScrollHigher }"
+        class="nav__button"
+        :class="{
+          'black--text': isScrollHigher,
+          'white--text': !isScrollHigher,
+        }"
         name="menu"
         width="22"
         height="22"
@@ -85,7 +94,6 @@ export default {
       isScrollHigher: false,
     };
   },
-  // TODO: Add Intersection observer
   beforeMount() {
     window.addEventListener('scroll', this.handleScroll);
   },
@@ -95,7 +103,7 @@ export default {
   methods: {
     handleScroll() {
       this.isScrollUp = this.scrollLastPosition > window.scrollY;
-      this.isScrollHigher = window.scrollY > 60;
+      this.isScrollHigher = window.scrollY > 30;
       this.scrollLastPosition = window.scrollY;
     },
     handleScrollEvent(anchorId) {
@@ -116,20 +124,20 @@ export default {
 <style scoped lang="scss">
 .nav {
   position: relative;
-  z-index: 999;
   &__wrapper {
     position: fixed;
     top: 0;
     height: 3.75rem;
     width: 100%;
     transition: 0.2s $cubic-bezier;
+    z-index: 5;
     &--active {
       transform: translateY(-100%);
     }
     &--show {
       transform: translateY(0);
       background-color: var(--v-white-base);
-      box-shadow: 0 3px 6px var(--v-black-base);
+      box-shadow: 0 3px 6px $button-inner-shadow;
     }
   }
   &__container {
