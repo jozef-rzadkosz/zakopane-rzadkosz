@@ -1,9 +1,13 @@
 <template>
-  <section class="contact background py-10">
+  <section
+    id="kontakt"
+    class="contact py-10 py-md-16"
+  >
     <v-container class="contact__container">
-      <h2 class="contact__title text-h2 primary--text text-uppercase pb-10">
-        Kontakt
-      </h2>
+      <Heading
+        title="Kontakt"
+        class="pb-10 pb-md-16"
+      />
       <ValidationObserver
         ref="form"
         v-slot="{ handleSubmit, failed, invalid }"
@@ -13,11 +17,19 @@
           @submit.prevent="handleSubmit(onSubmit)"
         >
           <ContactInput
-            v-model="form.username"
+            v-model="form.name"
             name="name"
-            label="Imię i nazwisko"
-            placeholder="Podaj swoje imię i nazwisko"
-            rules="required|alpha_spaces|min:3|max:100"
+            label="Imię"
+            placeholder="Podaj swoje imię"
+            rules="required|min:3|max:100"
+            class="contact__input"
+          />
+          <ContactInput
+            v-model="form.surname"
+            name="surname"
+            label="Nazwisko"
+            placeholder="Podaj swoje nazwisko"
+            rules="required|min:3|max:100"
             class="contact__input"
           />
           <ContactInput
@@ -46,7 +58,7 @@
           />
           <ContactButton
             class="form__button"
-            variant="primary"
+            variant="secondary"
             type="submit"
             :disabled="failed && invalid"
           >
@@ -69,9 +81,9 @@
 <script>
 import { ValidationObserver } from 'vee-validate';
 
-import ContactButton from '@/components/Button';
-import ContactInput from '@/components/forms/Input';
-import ContactTextarea from '@/components/forms/Textarea';
+import ContactButton from '~/components/Button';
+import ContactInput from '~/components/forms/Input';
+import ContactTextarea from '~/components/forms/Textarea';
 
 export default {
   name: 'Contact',
@@ -81,12 +93,6 @@ export default {
     ContactTextarea,
     ValidationObserver,
   },
-  props: {
-    from: {
-      type: String,
-      required: true,
-    },
-  },
   data() {
     return {
       isSubmitting: false,
@@ -94,8 +100,8 @@ export default {
       color: '',
       snackbar: false,
       form: {
-        from: this.from,
-        username: '',
+        name: '',
+        surname: '',
         email: '',
         phone: '',
         message: '',
@@ -112,8 +118,8 @@ export default {
         const resp = await this.$axios.post('/contact', this.form);
         if (resp.status === 200) {
           this.form = {
-            from: this.from,
-            username: '',
+            name: '',
+            surname: '',
             email: '',
             phone: '',
             message: '',
@@ -129,6 +135,7 @@ export default {
         this.color = 'red';
         this.message = 'Nie udało się wysłać wiadomości';
         this.snackbar = true;
+        console.error(err);
       }
     },
   },
@@ -137,16 +144,19 @@ export default {
 
 <style scoped lang="scss">
 .contact {
-  &__container {
+  &__textarea {
     @media #{$md-and-up} {
-      width: 44rem !important;
-      margin: 0 auto;
+      grid-column: 1/-1;
     }
   }
 }
 .form {
   display: grid;
   gap: 1rem;
+  @media #{$md-and-up} {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   &__button {
     @media #{$md-and-up} {
       justify-self: start;

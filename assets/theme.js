@@ -4,6 +4,6 @@ export default {
   black: '#000',
   background: '#EFEFEF',
   red: '#EB6062',
-  font: '#000000db',
   'footer-color': '#000',
+  placeholder: '#b7b7b7',
 };

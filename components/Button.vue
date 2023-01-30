@@ -4,6 +4,7 @@
     :class="`btn--${variant}`"
     v-bind="$attrs"
     v-on="$listeners"
+    :v-ripple="false"
   >
     <slot />
     <svg-icon
@@ -16,7 +17,7 @@
 
 <script>
 export default {
-  name: 'MmpButton',
+  name: 'ContactButton',
   props: {
     variant: {
       type: String,
@@ -48,20 +49,24 @@ export default {
       color: var(--v-white-base) !important;
     }
   }
-
-  &--large-text ::v-deep .v-btn__content {
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-    flex: unset !important;
-    white-space: normal;
-  }
-  &--no-upper-borders {
-    border-top-left-radius: 0 !important;
-    border-top-right-radius: 0 !important;
+  &--secondary {
+    background-color: var(--v-primary-base) !important;
+    color: var(--v-white-base) !important;
+    border: 3px solid var(--v-primary-base);
+    &:hover {
+      background-color: transparent !important;
+      color: var(--v-primary-base) !important;
+    }
   }
   &__icon {
     width: 1.5rem;
     height: 1.5rem;
+  }
+  ::v-deep {
+    &.v-btn--disabled {
+      border: 3px solid var(--v-placeholder-base) !important;
+      cursor: not-allowed;
+    }
   }
 }
 </style>

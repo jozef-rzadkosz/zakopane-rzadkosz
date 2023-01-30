@@ -1,14 +1,16 @@
 <template>
   <nav class="nav">
     <div
-      class="nav__wrapper px-6"
+      class="nav__wrapper d-flex px-6"
       :class="{
         'nav__wrapper--active': isScrollHigher,
         'nav__wrapper--show': isScrollUp && isScrollHigher,
       }"
     >
+      <Logo />
       <svg-icon
         class="nav__button white--text"
+        :class="{ 'black--text': isScrollHigher }"
         name="menu"
         width="22"
         height="22"
@@ -45,8 +47,9 @@
             :key="item.id"
             class="nav__item mx-4 font-weight-bold"
             active-class="nav__item--active"
-            :to="item.url"
+            :to="{ path: '/', hash: item.url }"
             :ripple="false"
+            @click.native="handleScrollEvent(item.url)"
           >
             <span>{{ item.name }}</span>
           </v-list-item>
@@ -56,13 +59,11 @@
             class="nav__social-item pa-0"
             v-for="item in socialItems"
             :key="item.id"
-            :href="item.url"
-            target="_blank"
           >
-            <v-btn
-              :name="item.name"
-              variant="social"
-            ></v-btn>
+            <SocialButton
+              :icon="item.name"
+              :href="item.url"
+            />
           </v-list-item>
         </v-list>
       </div>
@@ -97,6 +98,17 @@ export default {
       this.isScrollHigher = window.scrollY > 60;
       this.scrollLastPosition = window.scrollY;
     },
+    handleScrollEvent(anchorId) {
+      if (this.$route.hash) {
+        const anchor = document.querySelector(`#${anchorId}`);
+        if (anchor) {
+          this.drawer = false;
+          window.scrollTo({
+            top: anchor.getBoundingClientRect().top + window.pageYOffset,
+          });
+        }
+      }
+    },
   },
 };
 </script>
@@ -116,6 +128,7 @@ export default {
     }
     &--show {
       transform: translateY(0);
+      background-color: var(--v-white-base);
       box-shadow: 0 3px 6px var(--v-black-base);
     }
   }

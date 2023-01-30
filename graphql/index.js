@@ -43,5 +43,8 @@ export const HOME_QUERY = gql`
         blurUpThumb
       }
     }
+    footer {
+      text(markdown: true)
+    }
   }
 `;

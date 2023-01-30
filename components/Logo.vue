@@ -22,6 +22,7 @@ export default {
   }
   &__title {
     text-transform: uppercase;
+    color: currentColor;
   }
 }
 </style>

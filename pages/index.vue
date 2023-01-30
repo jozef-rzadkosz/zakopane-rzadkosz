@@ -4,6 +4,9 @@
     <Home :home="home" />
     <AboutUs :allAbouts="allAbouts" />
     <Gallery :gallery="gallery" />
+    <Contact />
+    <Map />
+    <Footer :text="footer?.text" />
   </div>
 </template>
 

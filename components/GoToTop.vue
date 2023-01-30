@@ -1,14 +1,13 @@
 <template>
   <v-btn
-    id="go-to-top"
-    class="go-to-top"
-    :class="{ 'go-to-top--visible': isScrollHigher }"
+    class="go-to-top primary"
+    :class="{ 'go-to-top--visible': isIntersecting }"
     fab
-    variant="primary"
     @click="goToTop"
     elevation="3"
   >
     <svg-icon
+      class="white--text"
       name="go-to-top"
       width="18"
       height="16"
@@ -21,27 +20,31 @@ export default {
   name: 'go-to-top',
   data() {
     return {
-      isScrollHigher: false,
+      isIntersecting: false,
     };
   },
   mounted() {
     let options = {
       root: null,
-      rootMargin: '100px',
+      rootMargin: '-50px',
       threshold: 0.1,
     };
-    // TODO: To be done
-    const obsCallback = function (entries, observer) {
-      entries.forEach((entry) => {});
-    };
-
-    let observer = new IntersectionObserver(obsCallback, options);
-    const goToTop = document.getElementById('go-to-top');
+    let observer = new IntersectionObserver(this.obsCallback, options);
+    const goToTop = document.getElementById('header');
     observer.observe(goToTop);
   },
   methods: {
     goToTop() {
       window.scrollTo(0, 0);
+    },
+    obsCallback(entries, observer) {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          this.isIntersecting = true;
+        } else {
+          this.isIntersecting = false;
+        }
+      });
     },
   },
 };

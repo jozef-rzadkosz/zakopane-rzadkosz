@@ -101,7 +101,7 @@ export default {
       outline-color: var(--v-primary-base);
     }
     &::placeholder {
-      color: var(--v-body-base);
+      color: var(--v-placeholder-base);
     }
   }
   &__error {

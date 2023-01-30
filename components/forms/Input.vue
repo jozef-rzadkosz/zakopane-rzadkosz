@@ -89,7 +89,6 @@ export default {
   }
   &__field {
     height: 2.8rem;
-    border-radius: 4px;
     padding: 0 1rem;
     font-family: inherit;
     font-size: 1rem;
@@ -99,7 +98,7 @@ export default {
       outline-color: var(--v-primary-base);
     }
     &::placeholder {
-      color: var(--v-body-base);
+      color: var(--v-placeholder-base);
     }
   }
   &__error {

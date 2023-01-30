@@ -1,5 +1,8 @@
 <template>
-  <header class="header">
+  <header
+    class="header"
+    id="header"
+  >
     <LazyImage
       class="header__image"
       :src="header.image?.blurUpThumb"
@@ -8,8 +11,7 @@
       :lazy-src="header.image?.responsiveImage?.src"
     />
     <div class="header__cover" />
-    <v-container class="header__container text-center white--text">
-      <Logo />
+    <v-container class="header__container text-center white--text pt-16">
       <h2 class="header__author text-h2 font-weight-bold">
         {{ header?.title }}
       </h2>
