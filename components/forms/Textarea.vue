@@ -29,7 +29,7 @@
       />
       <span
         v-if="errors.length"
-        class="input__error"
+        class="input__error text-body-2"
         >{{ errors[0] }}</span
       >
     </div>
