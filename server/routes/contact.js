@@ -24,7 +24,7 @@ router.post('/', (req, res) => {
   }
 
   const sendgrid = process.env.RZADKOSZ_SENDGRID;
-  console.log(sendgrid);
+
   if (sendgrid) {
     sgMail.setApiKey(sendgrid);
   } else {
