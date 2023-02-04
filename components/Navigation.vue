@@ -72,6 +72,11 @@ export default {
 <style scoped lang="scss">
 .nav {
   position: relative;
+  ::v-deep {
+    .v-navigation-drawer {
+      height: var(--app-height) !important;
+    }
+  }
   &__wrapper {
     position: fixed;
     top: 0;
