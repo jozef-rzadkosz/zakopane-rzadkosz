@@ -1,7 +1,8 @@
 <template>
-  <div
-    class="logo"
-    :class="`logo--${variant}`"
+  <nuxt-link
+    to="/"
+    class="logo logo--center"
+    @click.native="goToTop"
   >
     <svg-icon
       class="logo__icon"
@@ -10,19 +11,15 @@
       height="15"
     ></svg-icon>
     <h1 class="logo__title text-h3 font-weight-bold">Zakopane Rzadkosz</h1>
-  </div>
+  </nuxt-link>
 </template>
 
 <script>
 export default {
   name: 'Logo',
-  props: {
-    variant: {
-      type: String,
-      default: 'left',
-      validator(value) {
-        return ['left', 'center'].includes(value);
-      },
+  methods: {
+    goToTop() {
+      window.scrollTo(0, 0);
     },
   },
 };
@@ -32,9 +29,8 @@ export default {
 .logo {
   display: flex;
   flex-direction: column;
-  &--left {
-    align-items: flex-start;
-  }
+  text-decoration: none;
+  color: var(--v-white-base);
   &--center {
     align-items: center;
   }

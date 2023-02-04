@@ -77,6 +77,7 @@ export default {
   }
   &__logo {
     grid-area: logo;
+    justify-self: start;
   }
   &__description {
     grid-area: description;

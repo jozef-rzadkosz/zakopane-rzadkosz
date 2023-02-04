@@ -40,6 +40,9 @@ export default {
   width: 100%;
   color: var(--v-white-base) !important;
   border-radius: 0;
+  @media #{$md-and-up} {
+    width: auto;
+  }
   &--primary {
     color: var(--v-primary-base) !important;
     background-color: transparent !important;

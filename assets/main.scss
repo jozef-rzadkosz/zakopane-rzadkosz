@@ -23,13 +23,10 @@ body {
 
 p {
   margin-bottom: 0 !important;
+  font-weight: 500;
   &:where(:not(:last-of-type)) {
     margin-bottom: 1rem !important;
   }
 }
 .nuxt-link-exact-active {
-  @media #{$md-and-up} {
-    background-color: transparent;
-    color: var(--v-primary-base) !important;
-  }
 }

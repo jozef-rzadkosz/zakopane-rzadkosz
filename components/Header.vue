@@ -1,6 +1,6 @@
 <template>
   <header
-    class="header"
+    class="header py-md-16"
     id="header"
   >
     <LazyImage
@@ -12,15 +12,24 @@
     />
     <div class="header__cover" />
     <v-container class="header__container text-center white--text">
-      <h2 class="header__author text-h2 font-weight-bold">
-        {{ header?.title }}
-      </h2>
-      <p class="header__subtitle">
-        {{ header?.subtitle }}
-      </p>
-      <Button variant="primary">{{ header?.buttonTitle }}</Button>
+      <DesktopNavigation
+        v-show="$vuetify.breakpoint.mdAndUp"
+      ></DesktopNavigation>
+      <div class="header__welcome">
+        <h2 class="header__author text-h2 text-md-h1 font-weight-bold">
+          {{ header?.title }}
+        </h2>
+        <p class="header__subtitle">
+          {{ header?.subtitle }}
+        </p>
+        <Button
+          href="#strona-glowna"
+          variant="primary"
+          >{{ header?.buttonTitle }}</Button
+        >
+      </div>
     </v-container>
-    <Navigation />
+    <Navigation v-show="$vuetify.breakpoint.smAndDown" />
     <GoToTop />
   </header>
 </template>
@@ -42,10 +51,13 @@ export default {
 <style scoped lang="scss">
 .header {
   position: relative;
-  height: clamp(30rem, 30vw, 50rem);
+  height: clamp(35rem, 60vw, 45rem);
   display: grid;
   align-items: center;
   grid-template-rows: minmax(0, 1fr);
+  @media #{$md-and-up} {
+    align-items: unset;
+  }
   &__image {
     position: absolute;
     top: 0;
@@ -66,8 +78,21 @@ export default {
     position: relative;
     z-index: 2;
     display: grid;
+    grid-template-rows: max-content minmax(0, 1fr);
+    align-items: center;
+  }
+  &__welcome {
+    position: relative;
+    z-index: 2;
+    display: grid;
     grid-auto-columns: minmax(0, 1fr);
     gap: 1rem;
+    @media #{$md-and-up} {
+      grid-auto-columns: auto;
+      justify-items: center;
+      padding: 0 10%;
+      gap: 1.5rem;
+    }
   }
 }
 </style>

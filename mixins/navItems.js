@@ -5,7 +5,7 @@ export default {
         {
           id: 1,
           name: 'Strona główna',
-          url: 'home',
+          url: 'strona-glowna',
         },
         { id: 2, name: 'O nas', url: 'o-nas' },
         { id: 3, name: 'Galeria', url: 'galeria' },
