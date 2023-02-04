@@ -65,6 +65,9 @@ export default {
   &__container {
     position: relative;
     z-index: 2;
+    display: grid;
+    grid-auto-columns: minmax(0, 1fr);
+    gap: 1rem;
   }
 }
 </style>

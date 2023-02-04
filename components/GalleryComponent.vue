@@ -1,5 +1,5 @@
 <template>
-  <section class="gallery">
+  <div class="gallery">
     <v-container>
       <div class="gallery__images">
         <div
@@ -25,7 +25,7 @@
         @close="currentImage = null"
       />
     </v-container>
-  </section>
+  </div>
 </template>
 
 <script>

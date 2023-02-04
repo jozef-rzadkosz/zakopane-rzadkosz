@@ -4,7 +4,7 @@
     id="home"
   >
     <v-container>
-      <div class="d-flex justify-center pb-10 pb-md-16">
+      <div class="d-flex pb-10 pb-md-16">
         <Heading :title="home?.title" />
       </div>
       <div v-html="sanitizeText(home?.description)"></div>

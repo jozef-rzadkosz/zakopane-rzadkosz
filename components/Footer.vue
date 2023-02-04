@@ -13,7 +13,7 @@
           :key="item.id"
         >
           <nuxt-link
-            :to="item.url"
+            :to="{ path: '/', hash: item.url }"
             class="footer__link text-decoration-none"
           >
             {{ item.name }}

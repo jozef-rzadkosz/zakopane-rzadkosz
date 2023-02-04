@@ -1,7 +1,12 @@
 <template>
   <div>
     <div class="heading">
-      <h2 class="heading__title text-h2 font-weight-bold pb-3">{{ title }}</h2>
+      <h2
+        class="heading__title text-h2 font-weight-bold pb-3"
+        :class="`heading--${position}`"
+      >
+        {{ title }}
+      </h2>
       <div
         class="heading__line"
         :class="`heading__line--${position}`"
@@ -20,7 +25,7 @@ export default {
     },
     position: {
       type: String,
-      default: 'center',
+      default: 'left',
       validator(value) {
         return ['left', 'center', 'right'].includes(value);
       },
@@ -32,7 +37,18 @@ export default {
 <style scoped lang="scss">
 .heading {
   display: grid;
-  grid-auto-columns: max-content;
+  grid-auto-columns: auto;
+  &--left {
+    text-align: left;
+  }
+  &--center {
+    text-align: center;
+  }
+  &--right {
+    @media #{$md-and-up} {
+      text-align: right;
+    }
+  }
   &__title {
   }
   &__line {

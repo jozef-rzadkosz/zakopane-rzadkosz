@@ -62,7 +62,7 @@ export default {
   transition: 0.2s $cubic-bezier;
   min-width: auto !important;
   aspect-ratio: 1/1 !important;
-  z-index: 7;
+  z-index: 5;
   width: 3.5rem !important;
   &--visible {
     opacity: 1;

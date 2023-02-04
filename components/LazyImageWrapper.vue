@@ -14,7 +14,13 @@ export default {
       threshold: 0.1,
     };
 
-    const obsCallback = function (entries, observer) {
+    let observer = new IntersectionObserver(this.observerCallback, options);
+    document.querySelectorAll('img.lazy-img').forEach((el) => {
+      observer.observe(el);
+    });
+  },
+  methods: {
+    observerCallback(entries, observer) {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
         entry.target.src = entry.target.dataset.lazySrc;
@@ -25,12 +31,7 @@ export default {
         entry.target.srcset = entry.target.dataset.lazySrcset;
         observer.unobserve(entry.target);
       });
-    };
-
-    let observer = new IntersectionObserver(obsCallback, options);
-    document.querySelectorAll('img.lazy-img').forEach((el) => {
-      observer.observe(el);
-    });
+    },
   },
 };
 </script>
