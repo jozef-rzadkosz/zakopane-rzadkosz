@@ -5,6 +5,7 @@
   "author": "Józef Rzadkosz",
   "scripts": {
     "dev": "nuxt",
+    "build:dev": "NODE_ENV=staging nuxt build",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
@@ -13,6 +14,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/svg-sprite": "^0.5.2",
     "core-js": "^3.15.1",
     "graphql": "^16.5.0",
