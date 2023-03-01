@@ -109,7 +109,9 @@ jobs:
             cd domains/$API_PROJECT_NAME/public_nodejs
             tar -xzvf webserver.tar.gz
             rm -rf webserver.tar.gz public tmp
-            if ! grep -q 'export RZADKOSZ_SENDGRID' ~/.bash_profile; then echo 'export RZADKOSZ_SENDGRID=$SENDGRID_TOKEN' >> ~/.bash_profile
+            if ! grep -q 'export RZADKOSZ_MAILJET_API' ~/.bash_profile; then echo 'export RZADKOSZ_MAILJET_API=$MAILJET_API' >> ~/.bash_profile
+            fi
+            if ! grep -q 'export RZADKOSZ_MAILJET_SECRET' ~/.bash_profile; then echo 'export RZADKOSZ_MAILJET_SECRET=$MAILJET_SECRET' >> ~/.bash_profile
             fi
             yarn
             devil www restart $API_PROJECT_NAME
