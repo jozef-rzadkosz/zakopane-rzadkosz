@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 const Joi = require('joi');
 const bodyParser = require('body-parser');
-const sgMail = require('@sendgrid/mail');
 const emailTemplate = require('../templates/email');
+const Mailjet = require('node-mailjet');
 
 router.use(bodyParser.json());
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
   const schema = Joi.object({
     name: Joi.string().min(3).max(100).required(),
     surname: Joi.string().min(3).max(100).required(),
@@ -23,33 +23,41 @@ router.post('/', (req, res) => {
     return res.status(500).send(result.error);
   }
 
-  const sendgrid = process.env.RZADKOSZ_SENDGRID;
+  const mailjet = new Mailjet({
+    apiKey: process.env.RZADKOSZ_MAILJET_API,
+    apiSecret: process.env.RZADKOSZ_MAILJET_SECRET,
+  });
 
-  if (sendgrid) {
-    sgMail.setApiKey(sendgrid);
-  } else {
-    console.log('SENDGRID TOKEN', sendgrid);
-    return res.status(500).send('Bad sendgrid token');
+  const request = mailjet.post('send', { version: 'v3.1' }).request({
+    Messages: [
+      {
+        From: {
+          Email: 'info@zakopane-rzadkosz.pl',
+          Name: 'Zakopane-Rzadkosz.pl',
+        },
+        Cc: [
+          {
+            Email: 'info@zakopane-rzadkosz.pl',
+          },
+        ],
+        To: [
+          {
+            Email: req.body.email,
+            Name: `${req.body.name} ${req.body.surname}`,
+          },
+        ],
+        Subject: 'Wiadomość ze strony',
+        HTMLPart: emailTemplate(req.body),
+      },
+    ],
+  });
+
+  try {
+    await request;
+    res.status(200).send(result);
+  } catch (err) {
+    res.status(500).send(err);
   }
-  const { email } = req.body;
-  const ourEmail = 'info@zakopane-rzadkosz.pl';
-
-  const msg = {
-    to: email,
-    cc: ourEmail,
-    from: `Zakopane-Rzadkosz <${ourEmail}>`, // Use the email address or domain you verified above
-    subject: `Wiadomość ze strony`,
-    html: emailTemplate(req.body),
-  };
-
-  // ES8
-  (async () => {
-    try {
-      await sgMail.send(msg).then((resp) => res.status(200).send(resp));
-    } catch (error) {
-      res.status(500).send(error);
-    }
-  })();
 });
 
 module.exports = router;
