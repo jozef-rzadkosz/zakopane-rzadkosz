@@ -39,6 +39,9 @@ router.post('/', async (req, res) => {
           {
             Email: 'info@zakopane-rzadkosz.pl',
           },
+          {
+            Email: 'giuseppe.rzadkosz@gmail.com',
+          },
         ],
         To: [
           {
